@@ -32,7 +32,7 @@ const Sidebar = () => {
         </Link>
 
         <Link
-          href="/Compras"
+          href="/Movimientos"
           className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
                            hover:text-xl hover:py-5"
         >

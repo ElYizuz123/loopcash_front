@@ -4,20 +4,17 @@ import Mensaje from "./Mensaje";
 import { FaPaperPlane } from "react-icons/fa";
 
 const ChatBot = () => {
-  const [mensajes, setMensajes] = useState([
-    {
-      texto: "¡Hola, soy Don Fainencito! ¿Cómo te puedo ayudar?",
-      esMio: false,
-    },
-  ]);
   const [mensajeNuevo, setMensajeNuevo] = useState("");
+  const [mensajeUsuario, setMensajeUsuario] = useState("");
+  const [respuestaBot, setRespuestaBot] = useState("Hola! Soy Financito, ¿En qué te puedo ayudar?");
 
+  // Función para enviar el mensaje al backend
   const enviarDatos = async (prompt) => {
-    const url = "https://loopcash-back.vercel.app/porkash";
+    const url = "https://loopcash-back.vercel.app/porkash"; // URL de la API
 
     const headers = {
       "Content-Type": "application/json",
-      "x-auth-token": "fiamsd34iwe4232mfoer34DFFkfD34344Ff",
+      "x-auth-token": "fiamsd34iwe4232mfoer34DFFkfD34344Ff", // Cambia por tu token correcto
     };
 
     const body = JSON.stringify({
@@ -36,59 +33,52 @@ const ChatBot = () => {
       }
 
       const data = await response.json();
-      console.log("Respuesta del servidor:", data);
+      return data;
     } catch (error) {
       console.error("Error en la petición:", error);
+      return { respuesta: "Error al obtener respuesta" }; // Mensaje de error por defecto
     }
   };
 
   const enviarMensaje = async () => {
-    if (mensajeNuevo.trim()) {
-      // Agregar mensaje del usuario
-      setMensajes([...mensajes, { texto: mensajeNuevo, esMio: true }]);
+    if (mensajeNuevo.trim() === "") return; // Evitar enviar mensajes vacíos
 
-      // Enviar el mensaje como prompt y esperar la respuesta
-      const respuestaBot = await enviarDatos(mensajeNuevo);
-      console.log(respuestaBot);
-      // Simular respuesta del bot
-      setTimeout(() => {
-        if (respuestaBot) {
-          setMensajes((prevMensajes) => [
-            ...prevMensajes,
-            { texto: respuestaBot.text, esMio: false }, // Muestra la respuesta del bot
-          ]);
-        } else {
-          setMensajes((prevMensajes) => [
-            ...prevMensajes,
-            {
-              texto: "Lo siento, no pude obtener una respuesta.",
-              esMio: false,
-            },
-          ]);
-        }
-      }, 1000);
+    console.log("Enviando mensaje: ", mensajeNuevo); // Verificar si el mensaje está siendo enviado
 
-      setMensajeNuevo("");
+    // Guardar mensaje del usuario
+    setMensajeUsuario(mensajeNuevo);
+
+    // Enviar el prompt al bot
+    let respuesta;
+    try {
+      respuesta = await enviarDatos(mensajeNuevo); // Simula la llamada a tu API
+      if (typeof respuesta === "string" && respuesta !== "") {
+        setRespuestaBot(respuesta);
+      } else {
+        throw new Error("Respuesta del bot en formato incorrecto");
+      }
+    } catch (error) {
+      console.error("Error al obtener la respuesta del bot", error);
+      setRespuestaBot(respuesta);
     }
+
+    setMensajeNuevo(""); // Limpiar el input después de enviar
   };
 
   return (
     <div className="flex flex-col justify-center items-center w-screen h-screen">
       {/* Contenedor superior con el nombre del bot */}
       <div className="bg-[#16915a] w-[1000px] h-16 mx-8 my-8 rounded-full text-white flex justify-center items-center text-3xl">
-        DON FAINENCITO
+        DON FINANCITO
       </div>
 
       {/* Contenedor de mensajes */}
       <div className="flex-grow p-4 overflow-y-auto w-[1000px] max-h-[400px]">
-        {mensajes.map((msg, index) => (
-          <div
-            key={index}
-            className={`flex ${msg.esMio ? "justify-end" : "justify-start"}`}
-          >
-            <Mensaje mensaje={msg.texto} esMio={msg.esMio} />
-          </div>
-        ))}
+        {/* Mostrar el mensaje del usuario si existe */}
+        {mensajeUsuario && <Mensaje mensaje={mensajeUsuario} esMio={true} mostrarIcono={false}/>}
+
+        {/* Mostrar la respuesta del bot si existe */}
+        {respuestaBot && <Mensaje mensaje={respuestaBot} esMio={false} mostrarIcono={true} />}
       </div>
 
       {/* Contenedor de input de mensajes */}

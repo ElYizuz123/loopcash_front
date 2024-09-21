@@ -14,7 +14,7 @@ const DataInput = () => {
       {/* Nombre */}
       <div className="flex items-center mb-4">
         <FaPencilAlt className=" absolute text-[#FFFB66] -left-4" />{" "}
-        {/* Icono de lápiz */}
+     
         <input
           type="text"
           value={name}
