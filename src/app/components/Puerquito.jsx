@@ -6,7 +6,7 @@ const Puerquito = () => {
       {/* Contenedor del cerdito con animación de salto */}
       <div className="relative w-28 h-28 animate-bounceCerdito">
         <p className="absolute top-[-60px] text-black font-semibold text-lg text-center">
-          ¿Tienes alguna duda?
+          ¿Tienes duda?
         </p>
         {/* Cuerpo del cerdito */}
         <div className="w-28 h-28 bg-pink-400 rounded-full relative shadow-lg"></div>

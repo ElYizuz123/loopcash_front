@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const IniciarSesion = () => {
   const [email, setEmail] = useState("");
@@ -49,12 +50,13 @@ const IniciarSesion = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
         </div>
-        <button
-          type="submit"
-          className="bg-[#16915a] hover:bg-[#12676b] text-white font-bold py-2 px-4 rounded w-full"
+        <Link
+          href="\Inicio"
+          className="bg-[#16915a] hover:bg-[#12676b] text-white font-bold py-2 px-4 rounded w-full
+                      flex justify-center"
         >
           Iniciar Sesión
-        </button>
+        </Link>
         <p className="mt-4 text-center">
           ¿No tienes una cuenta? <a href="/Registrar" className="text-[#16915a] hover:underline">Regístrate aquí</a>
         </p>

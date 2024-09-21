@@ -1,18 +1,12 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
 
+import { Raleway } from 'next/font/google';
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const raleway = Raleway ({
+  subsets: ['latin'],
+  weights: ['400', '700'],
 });
 
 export const metadata = {
@@ -25,7 +19,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
   
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={raleway.className}
       >
         <Image src={"/Layout.jpeg"} height={2000} width={2000} alt='Fondo'
         className="h-screen w-screen absolute z-0"/>
