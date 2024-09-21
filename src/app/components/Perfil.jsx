@@ -5,8 +5,9 @@ import Link from 'next/link'
 export const Perfil = () => {
   return (
     <Link
-    href='/UpdateData'
-    className="flex justify-between items-center space-x-8 cursor-pointer">  
+      href="/UpdateData"
+      className="flex justify-between items-center space-x-8 cursor-pointer"
+    >
       <div className="w-16 h-16 bg-gray-600 rounded-full ml-4">
         <img></img>
       </div>
@@ -14,4 +15,5 @@ export const Perfil = () => {
     </Link>
   );
 };
+
 export default Perfil;
