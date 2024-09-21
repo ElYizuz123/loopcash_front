@@ -40,9 +40,15 @@ const ChatBot = () => {
     }
   };
 
+  const manejarTecla = (e) => {
+    if (e.key === "Enter") {
+      enviarMensaje();
+    }
+  };
+
   const enviarMensaje = async () => {
     if (mensajeNuevo.trim() === "") return; // Evitar enviar mensajes vacíos
-
+    setRespuestaBot("");
     console.log("Enviando mensaje: ", mensajeNuevo); // Verificar si el mensaje está siendo enviado
 
     // Guardar mensaje del usuario
@@ -60,9 +66,8 @@ const ChatBot = () => {
     } catch (error) {
       console.error("Error al obtener la respuesta del bot", error);
       setRespuestaBot(respuesta);
+      setMensajeNuevo("");
     }
-
-    setMensajeNuevo(""); // Limpiar el input después de enviar
   };
 
   return (
@@ -88,6 +93,7 @@ const ChatBot = () => {
           placeholder="Escribe un mensaje..."
           value={mensajeNuevo}
           onChange={(e) => setMensajeNuevo(e.target.value)}
+          onKeyDown={manejarTecla} // Agrega este evento
           className="bg-transparent outline-none text-white w-full px-4"
         />
         <FaPaperPlane

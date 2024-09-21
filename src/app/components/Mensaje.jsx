@@ -2,7 +2,7 @@ import React from "react";
 
 const Mensaje = ({ mensaje, esMio, mostrarIcono }) => {
   return (
-    <div className={`flex items-center p-2 m-2 rounded-lg max-w-xs ${esMio ? "bg-[#16915a] text-white self-end" : "bg-[#12676b] text-white self-start"}`}>
+    <div className={`flex p-2 m-2 rounded-lg max-w-xs ${esMio ? "bg-[#16915a] text-white self-end" : "bg-[#12676b] text-white self-start"}`}>
       {/* Condicional para mostrar la imagen */}
       {mostrarIcono && (
         <img
