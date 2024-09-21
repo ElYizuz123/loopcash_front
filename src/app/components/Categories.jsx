@@ -32,7 +32,7 @@ const Categories = () => {
         </div>
 
         <div
-          className="grid grid-cols-3  bg-red-500 absolute h-8 w-[500px] top-52 
+          className="grid grid-cols-3  absolute h-8 w-[500px] top-52 
         items-center "
         >
           <MoneyCategoria imagen={"/comida.png"} />
@@ -41,7 +41,7 @@ const Categories = () => {
         </div>
 
         <div
-          className="grid grid-cols-3 bg-black top-80 absolute h-8 w-[500px] 
+          className="grid grid-cols-3 top-80 absolute h-8 w-[500px] 
         items-center "
         >
           <MoneyCategoria imagen={"/salud.png"} />
