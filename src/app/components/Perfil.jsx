@@ -1,11 +1,12 @@
 import React from "react";
 import Link from 'next/Link'
 
+
 export const Perfil = () => {
   return (
     <Link
-    href='/Register'
-    className="flex justify-between items-center space-x-8">  
+    href='/UpdateData'
+    className="flex justify-between items-center space-x-8 cursor-pointer">  
       <div className="w-16 h-16 bg-gray-600 rounded-full ml-4">
         <img></img>
       </div>
