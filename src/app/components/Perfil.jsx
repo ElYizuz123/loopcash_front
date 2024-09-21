@@ -1,5 +1,6 @@
 import React from "react";
-import Link from "next/Link";
+import Link from 'next/link'
+
 
 export const Perfil = () => {
   return (
