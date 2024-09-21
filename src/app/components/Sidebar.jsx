@@ -8,17 +8,39 @@ const Sidebar = () => {
       <div className="flex justify-center p-4 logo">
         <Image src={"/Logo.png"} alt="Logo" height={300} width={200} />
       </div>
-      <nav >
-        <ul>
-          <li className="flex items-center space-x-4 px-4 hover:bg-green-500 
-          hover:py-2 hover:rounded-r-full">
-            <FaHome className="w-5 h-5" />
-            <span className="text-xl">Inicio</span>
-          </li>
-          <li>Datos</li>
-          <li>Conceptos</li>
-          <li>Financiamiento </li>
-        </ul>
+      <nav className="relative space-y-4 text-center">
+
+        <button className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
+                           hover:text-xl hover:py-5">
+          <FaHome/>
+          <p>INICIO</p>
+        </button>
+
+        <button className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
+                           hover:text-xl hover:py-5">
+          <FaHome/>
+          <p>¿QUÉ ES?</p>
+        </button>
+
+        <button className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
+                           hover:text-xl hover:py-5">
+          <FaHome/>
+          <p>COMPRAS</p>
+        </button>
+
+        <button className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
+                           hover:text-xl hover:py-5">
+          <FaHome/>
+          <p>ESTRATEGIAS</p>
+        </button>
+
+        <button className="w-64 h-8 flex items-center space-x-2 px-8 hover:bg-[#1fb878] hover:rounded-r-full
+                           hover:text-xl hover:py-5">
+          <FaHome/>
+          <p>RANKING</p>
+        </button>
+        
+      
       </nav>
     </div>
   );

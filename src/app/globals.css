@@ -20,17 +20,6 @@
   margin-bottom: 20px;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin: 20px 0;
-  font-size: 18px;
-  cursor: pointer;
-}
-
 .main-content {
   flex: 1;
   padding: 20px;
@@ -42,13 +31,13 @@
   align-items: center;
 }
 
-.user-info {
+/* .user-info {
   background-color: #16915a;
   padding: 10px;
   border-radius: 50%;
   color: white;
   font-weight: bold;
-}
+} */
 
 .progress {
   margin-top: 50px;
@@ -71,3 +60,39 @@
 }
 
 
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1); /* Ojos abiertos */
+  }
+  92% {
+    transform: scaleY(0.1); /* Ojos cerrados (parpadeo) */
+  }
+}
+
+/* Animación de salto natural */
+@keyframes bounceNatural {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(-40px); /* Salta hacia arriba */
+    animation-timing-function: ease-out;
+  }
+}
+
+/* Ojos animados con parpadeo */
+.eye-container {
+  animation: blink 4s infinite; /* Parpadeo cada 4 segundos */
+  transform-origin: center;
+}
+
+/* Pupilas más grandes */
+.eye-pupil {
+  animation: blink 4s infinite;
+}
+
+/* Clase para el cerdito con rebote más natural */
+.animate-bounceNatural {
+  animation: bounceNatural 2s infinite;
+}
