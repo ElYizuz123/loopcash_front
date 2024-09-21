@@ -39,12 +39,12 @@ const MainContent = () => {
           {/* Div de fondo que se quiere superponer */}
           <div className="bg-[#12676b] h-20 w-[500px] absolute rounded-2xl top-2 left-2 z-0"></div>
         </div>
-        <div className="bg-[#12676b] h-20 w-72 rounded-l-full flex items-center relative">
+        <div className="h-20 w-72 rounded-l-full flex items-center relative ">
           {/* Fondo detrás del Perfil */}
-          <div className="absolute z-0 bg-green-500 h-20 w-[280px] rounded-l-full"></div>
+          <div className="absolute z-0 h-20 w-[280px] rounded-l-full"></div>
 
           {/* Componente Perfil sobre el fondo */}
-          <div className="bg-green-500 h-20 w-72 rounded-l-full flex items-center relative">
+          <div className="bg-green-500 h-20 w-72 rounded-l-full flex items-center relative ">
             <Perfil />
           </div>
         </div>
